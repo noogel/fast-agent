@@ -48,21 +48,35 @@ cd fast-agent  # 进入独立项目目录
 
 文档服务仅监听本机，展示教程与 Python 源码参考页。它不会运行 Agent，也不需要加载模型密钥。
 
-## 发布到 GitHub Pages
+## 本地构建并发布到 GitHub Pages
 
-线上地址为 <https://noogel.github.io/fast-agent/>。GitHub 仓库的 Pages 发布来源需设置为 **GitHub Actions**，`github-pages` 环境需允许 `main` 分支部署。
+站点地址为 <https://noogel.github.io/fast-agent/>。源码保存在 `main`，生成的静态文件保存在 GitHub 的 `gh-pages` 分支。
 
-选择 GitHub Actions 后，无需再创建页面推荐的 Jekyll 或 Static HTML 模板。若首次运行因未启用 Pages 而失败，启用后可在 Actions 中重新运行失败任务，或推送新的教程变更触发发布。
+### 首次配置
 
-仓库根目录的 `.github/workflows/fast-agent-pages.yml` 在该分支的教程、源码参考或发布配置变更推送到 GitHub 时触发。它安装 `requirements-docs.txt` 中的文档依赖，执行严格构建，仅上传 `site/`。不安装模型 SDK，不读取 `.env`，不运行 Agent，也不需要模型密钥。源码参考页会公开展示项目 Python 模块和示例。
-
-发布前可在项目目录本地检查：
+在仓库 **Settings → Pages → Build and deployment** 中，将 **Source** 改为 **Deploy from a branch**，选择 **gh-pages** 和 **/(root)**，点击 **Save**。分支需要先通过下面的发布命令创建。不需要添加 Jekyll 或 Static HTML 工作流模板。
 
 ```bash
 .venv/bin/python -m pip install -r requirements-docs.txt
-.venv/bin/python -m mkdocs build --strict
+bash scripts/publish-pages.sh --build-only
 ```
 
-推送后在 GitHub 的 Actions 页面检查 **Publish Fast Agent tutorial**。构建失败不会进入部署步骤；部署失败时检查 Pages 来源、环境允许分支和工作流权限。只有部署成功且线上页面可访问，才算发布完成。`workflow_dispatch` 手动入口需要工作流存在于默认分支；当前分支可以通过新的相关文件提交触发。
+### 更新教程
 
-`site_url` 是线上规范地址，`dev_addr` 仍为本机预览地址，两者用途不同。切换发布分支时须同时修改工作流触发条件、作业分支检查和 Pages 环境规则。
+先提交源码修改，再在本机运行：
+
+```bash
+bash scripts/publish-pages.sh
+```
+
+脚本检查工作区干净且 `github` 指向 `noogel/fast-agent`，使用 MkDocs 严格构建后推送到 `gh-pages`。它不会推送源码分支、不使用强制推送、不清空发布历史。需要同步源码时另行推送 `main`。从其他目录调用脚本时也会自动进入项目根目录；可用 `FAST_AGENT_DOCS_PYTHON` 指定文档 Python 环境。
+
+只有文档静态产物和 `.nojekyll` 进入发布分支；该文件用于跳过 Jekyll 构建。文档包含公开的 Python 源码参考页，不需要读取 `.env` 或请求模型。不要在教程正文和代码示例中加入真实凭据。
+
+### 失败与上线检查
+
+构建警告或错误会停止推送。若远端发布分支领先而推送被拒绝，应先核对远端变更，不用强推覆盖。推送成功后仍需检查 Pages 部署状态，并访问首页、架构页及搜索，不能把 Git 推送成功当作网站上线成功。
+
+这里取消的是自定义 Actions 构建流程。GitHub Pages 的最终部署仍由平台内部 Actions 工作流完成；账号账单锁定可能继续阻止部署，本地构建不能保证绕过该限制。详见 [GitHub 官方发布说明](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)。
+
+`site_url` 是线上规范地址，`dev_addr` 是本机预览地址，两者用途不同。
