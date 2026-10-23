@@ -8,12 +8,66 @@
                        └─ 是 → 校验参数 → 执行工具 → 保存结果 → 再调用模型
 ```
 
+## 在线教程与 GitHub Pages 发布
+
+- 教程入口：[noogel.github.io/fast-agent](https://noogel.github.io/fast-agent/)
+- 当前实际地址：[noge.top/fast-agent](https://noge.top/fast-agent/)。项目站点继承个人主页的自定义域名，GitHub 地址会跳转到这里。
+- 源码仓库：独立的 `noogel/fast-agent`；源码在 `main`，静态教程在 `gh-pages`。个人主页仓库 `noogel/noogel.github.io` 单独维护，不需要复制教程到那里。
+
+### 首次配置
+
+在独立项目根目录安装文档依赖：
+
+```bash
+python3 -m venv .venv  # 已有可用虚拟环境时跳过
+.venv/bin/python -m pip install -r requirements-docs.txt
+```
+
+确认 `git remote -v` 中名为 `github` 的远端指向 `git@github.com:noogel/fast-agent.git`。如尚未添加，执行：
+
+```bash
+git remote add github git@github.com:noogel/fast-agent.git
+```
+
+在 [fast-agent 的 Pages 设置](https://github.com/noogel/fast-agent/settings/pages)中选择 **Deploy from a branch → gh-pages → /(root) → Save**。若尚无 `gh-pages`，先运行下方发布命令创建分支，再选择。不要选 `/docs`，也不要修改个人主页仓库的发布来源。
+
+### 本地预览与发布
+
+```bash
+# 本机预览，默认 http://127.0.0.1:8000/
+.venv/bin/python -m mkdocs serve
+
+# 仅严格构建，不推送
+bash scripts/publish-pages.sh --build-only
+
+# 更新文档后，先检查并提交源码，再发布
+# git add <本次修改的文件>
+# git commit -m "docs: 更新教程"
+bash scripts/publish-pages.sh
+```
+
+发布脚本要求工作区干净，并检查目标远端。它在本地严格构建，将 `site/` 的静态产物和 `.nojekyll` 推送到 GitHub `gh-pages`，不切换当前源码分支、不强制覆盖历史，也不自动推送 `main`。需要同步源码时分别执行 `git push github main` 和 `git push origin main`（`origin` 为 Gitee）。
+
+构建不需要模型密钥；`.env`、会话数据和虚拟环境不属于发布产物。教程包含公开的 Python 源码参考页，正文与示例不可加入真实凭据。
+
+### 验证与故障处理
+
+推送后检查 [Pages 部署记录](https://github.com/noogel/fast-agent/actions)，再打开教程首页、架构页并检查搜索。Git 推送成功不等于网站已经上线。
+
+- 找不到 `/github/workspace/docs`：发布目录选错，改为 `gh-pages` 的 `/(root)`。
+- 工作区不干净：先核对并提交修改；本机密钥与运行数据应保持忽略，不为发布而强行加入 Git。
+- 推送权限错误：检查 `github` 远端和 SSH 账号权限。
+- 非快进推送被拒绝：先核对远端发布分支历史，不使用强推覆盖。
+- 账号账单锁定：本地构建不能保证绕过限制。此方案不使用自定义 Actions 构建，但 GitHub Pages 最终仍由平台内部工作流部署。
+
+更多说明见 [教程首页的发布指南](docs/index.md#本地构建并发布到-github-pages)。
+
 ## 五分钟运行
 
 需要 Python 3.11 或更新版本。命令工具支持 macOS/Linux。代码检索还需要 ripgrep（`rg`，macOS 可用 `brew install ripgrep` 安装）。
 
 ```bash
-cd /Users/xyz/MyProjects/awesome/fast-agent
+cd /Users/xyz/MyProjects/fast-agent
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install -e '.[dev]'
