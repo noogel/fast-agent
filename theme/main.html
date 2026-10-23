@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if page %}{{ page.title }} · {% endif %}{{ config.site_name }}</title>
+{% if page and page.canonical_url %}<link rel="canonical" href="{{ page.canonical_url }}">{% endif %}
+<link rel="stylesheet" href="{{ 'book.css' | url }}">
+<script defer src="{{ 'book.js' | url }}"></script>
+</head>
+<body data-root="{{ '.' | url }}">
+<a class="skip" href="#content">跳到正文</a>
+<header class="topbar"><a class="brand" href="{{ nav.homepage.url | url }}"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 28" width="20" height="24" focusable="false"><path fill="currentColor" d="M3 1h19v7h-2l-2-4h-8v9h5l2-3h2v9h-2l-2-3h-5v8l4 1v2H3v-2l3-1V4L3 3z"/></svg></span>Fast Agent <span class="brand-note">一本可以运行的 Agent 教程</span></a><button class="search-open" aria-haspopup="dialog">搜索教程 <kbd>/</kbd></button></header>
+<div class="book-layout">
+<aside class="chapters"><details class="chapter-drawer" open><summary>章节目录</summary><nav aria-label="章节导航">
+{% macro tree(items) %}<ul>{% for item in items %}<li>{% if item.children %}<details {% if item.active %}open{% endif %}><summary>{{ item.title }}</summary>{{ tree(item.children) }}</details>{% else %}<a {% if item.active %}aria-current="page"{% endif %} href="{{ item.url | url }}">{{ item.title }}</a>{% endif %}</li>{% endfor %}</ul>{% endmacro %}
+{{ tree(nav.items) }}</nav></details><div class="sidebar-note">READ · BUILD · UNDERSTAND<br>读懂原理，再亲手验证。</div></aside>
+<main id="content" tabindex="-1"><div class="chapter-label">FAST AGENT / {% if page and page.parent %}{{ page.parent.title }}{% else %}中文教学手册{% endif %}</div><article>{{ page.content if page else '' }}</article>
+{% if page %}<nav class="pagination" aria-label="上下章节">{% if page.previous_page %}<a href="{{ page.previous_page.url | url }}"><small>← 上一章</small>{{ page.previous_page.title }}</a>{% else %}<span></span>{% endif %}{% if page.next_page %}<a href="{{ page.next_page.url | url }}"><small>下一章 →</small>{{ page.next_page.title }}</a>{% endif %}</nav>{% endif %}<footer>Fast Agent · 通过代码理解 Agent</footer></main>
+<aside class="page-toc"><span>本页内容</span>{% if page %}{% macro toc(items) %}<ul>{% for item in items %}<li><a href="{{ item.url }}">{{ item.title }}</a>{% if item.children %}{{ toc(item.children) }}{% endif %}</li>{% endfor %}</ul>{% endmacro %}{% if page.toc|length == 1 and (page.toc|first).children %}{{ toc((page.toc|first).children) }}{% else %}{{ toc(page.toc) }}{% endif %}{% endif %}<a class="back-top" href="#content">回到顶部 ↑</a></aside>
+</div>
+<dialog class="search-dialog" aria-label="搜索教程"><div class="search-bar"><input type="search" aria-label="搜索关键词" placeholder="搜索概念、命令或章节…"><button class="search-close" aria-label="关闭搜索">关闭</button></div><p class="search-status" role="status">输入关键词搜索全部教程</p><ul class="search-results"></ul></dialog>
+</body></html>

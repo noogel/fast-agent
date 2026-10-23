@@ -290,3 +290,9 @@ Skill 已读资源支持 SHA-256 与 `expected_sha256` 分页版本检查；变�
 教学总览：[Agent 整体架构与功能地图](docs/architecture.md)。新增 `/delegations [页码]`、`/delegation ID` 查看独立委派报告，不调用模型或修改主会话。
 
 `/worktree-archive 名称` 和 `/worktree-restore 名称` 支持保留全部内容的归档恢复；不释放磁盘空间。见 [第 41 章](docs/tutorial/41-worktree-archive.md)。
+
+### 教程主题
+
+文档使用项目自带的中文技术书主题。`theme/main.html` 管理章节导航、页内目录和上下章链接；`theme/book.css` 管理纸面配色和响应式布局；`theme/book.js` 提供中文关键词搜索与代码复制。无需 Material 主题或外部字体服务。搜索支持多个空格分隔关键词的同时匹配，最多显示 30 条结果；这是关键词检索，不是语义搜索。手机端章节目录默认折叠，点击“章节目录”展开。
+
+修改模板后运行 `.venv/bin/python -m mkdocs build --strict`，再用 `mkdocs serve` 检查首页、深层教程、搜索和代码块。线上发布仍使用 `scripts/publish-pages.sh`。

@@ -1,4 +1,4 @@
 # 与 pyproject.toml 的 docs 可选依赖保持一致；发布教程不安装模型 SDK。
 mkdocs>=1.6,<2
-mkdocs-material>=9.6,<10
+pymdown-extensions>=10,<11
 jieba>=0.42.1,<1

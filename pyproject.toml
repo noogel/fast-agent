@@ -12,7 +12,7 @@ dependencies = ["openai>=3.35.1,<4", "httpx2>=2.14,<3", "PyYAML>=6,<7"]
 [project.optional-dependencies]
 mcp-test = ["mcp>=1.26,<2"]
 dev = ["pytest>=9,<10", "cryptography>=50,<51"]
-docs = ["mkdocs>=1.6,<2", "mkdocs-material>=9.6,<10", "jieba>=0.42.1,<1"]
+docs = ["mkdocs>=1.6,<2", "pymdown-extensions>=10,<11", "jieba>=0.42.1,<1"]
 
 [project.scripts]
 fast-agent = "fast_agent.cli:main"

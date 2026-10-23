@@ -1,12 +1,34 @@
-# Fast Agent 中文教程
+# 由浅入深理解 Agent
 
-从一个失败测试开始，理解模型怎样调用工具、怎样管理消息，以及怎样可靠地修改代码。
+<div class="book-lead" markdown>
+从一个失败测试出发，读懂模型怎样决策、工具怎样执行，以及一个可靠的 Agent 怎样完成工程任务。
+</div>
 
-## 第一次阅读
+## 学习目录
 
-进入[由浅入深理解 agent](deep-dive/index.md)，按八章顺序学习：认识 Agent → 工具请求 → 多轮消息 → 上下文 → 安全修改 → 中断恢复 → 扩展分工 → 分层架构。
+<ol class="book-index">
+<li><a href="deep-dive/decisions/">从失败测试认识 Agent</a></li>
+<li><a href="deep-dive/tools/">模型怎样请求工具</a></li>
+<li><a href="deep-dive/messages/">一轮怎样接着下一轮</a></li>
+<li><a href="deep-dive/context/">对话变长后怎么办</a></li>
+<li><a href="deep-dive/safety/">怎样放心地修改代码</a></li>
+<li><a href="deep-dive/recovery/">中断后怎样继续</a></li>
+<li><a href="deep-dive/extensions/">怎样扩展和分工</a></li>
+<li><a href="architecture/">回看分层架构</a></li>
+</ol>
 
-这是一条连续学习路线，不需要先读完所有实践指南。第一章会链接到[修复测试的完整例子](start-with-a-task.md)。
+按顺序阅读这八章，再根据问题查阅实践指南。也可以先看[阅读路线与参考资料](deep-dive/index.md)。
+
+## 先跑一次离线演示 { #offline-demo }
+
+在已安装项目依赖的目录执行：
+
+```bash
+source .venv/bin/activate
+fast-agent --demo
+```
+
+演示在临时目录完成读取、修改和复读验证，无需模型密钥。接着回到学习主线理解每一步。
 
 ## 想动手或查具体功能
 
@@ -22,17 +44,6 @@
 | 隔离工作目录、委派只读分析 | [worktree](tutorial/37-worktree-isolation.md)、[子 Agent](tutorial/38-readonly-delegation.md) |
 
 实践指南按任务组织，可按需查阅；页面地址保持稳定，便于对应代码和验证记录。源码链接可以打开只读参考页，搜索支持中文关键词。
-
-## 先跑一次离线演示
-
-在已安装项目依赖的目录执行：
-
-```bash
-source .venv/bin/activate
-fast-agent --demo
-```
-
-演示在临时目录完成读取、修改和复读验证，无需模型密钥。接着回到学习主线理解每一步。
 
 ## 启动这个文档服务
 

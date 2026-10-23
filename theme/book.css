@@ -1,0 +1,70 @@
+:root{--paper:#faf9f6;--ink:#28332f;--muted:#6e7872;--line:#e1e4dc;--accent:#28634c;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink);background:var(--paper);font-size:16px;scroll-behavior:smooth;scroll-padding-top:90px}*{box-sizing:border-box}body{margin:0}a{color:var(--accent);text-decoration:none}a:hover{text-decoration:none;color:#163f2d}button,input{font:inherit}button,summary{cursor:pointer}a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #9dbda9;outline-offset:4px}.skip{position:fixed;top:-80px;left:20px;background:white;padding:15px;z-index:9}.skip:focus{top:10px}.topbar{height:72px;position:sticky;top:0;z-index:3;background:#faf9f6f5;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 36px;gap:20px}.brand{display:flex;align-items:center;gap:12px;color:var(--ink);font-weight:750;letter-spacing:-.5px}.brand-mark{background:var(--accent);color:white;font-family:Georgia,serif;font-size:24px;width:34px;height:36px;text-align:center;border-radius:3px}.brand-note{font-size:12px;color:var(--muted);font-weight:400;letter-spacing:1px;margin-left:20px}.search-open{background:transparent;border:1px solid var(--line);border-radius:5px;padding:9px 12px;color:var(--muted);min-width:180px;text-align:left}.search-open kbd{float:right;border:1px solid var(--line);padding:0 5px}.book-layout{display:grid;grid-template-columns:260px minmax(0,780px) 190px;max-width:1400px;margin:auto;gap:36px;padding:0 30px}.chapters,.page-toc{position:sticky;top:72px;height:calc(100vh - 72px);overflow-y:auto;padding:32px 0}.chapters{border-right:1px solid var(--line);padding-right:22px}.chapter-drawer>summary{font-size:11px;letter-spacing:2px;color:var(--muted);margin-bottom:24px;list-style:none}.chapters ul,.page-toc ul{list-style:none;padding:0;margin:0}.chapters li{margin:4px 0}.chapters nav summary{font-size:13px;font-weight:650;padding:10px 8px}.chapters ul ul{padding-left:12px;border-left:1px solid var(--line);margin-left:8px}.chapters a{display:block;font-size:13px;padding:8px 10px;color:#626d65;line-height:1.6;border-radius:4px}.chapters a[aria-current]{background:#e7eee6;color:#234f3d;font-weight:650;border-left:3px solid var(--accent)}.sidebar-note{font-size:10px;line-height:2.1;letter-spacing:1px;color:#899087;margin:40px 8px}main{padding:44px 0 0;min-width:0}.chapter-label{font-size:10px;letter-spacing:2px;color:var(--muted);margin-bottom:20px}article{line-height:1.95;font-size:16px;overflow-wrap:anywhere}h1,h2,h3{line-height:1.5;color:#223b2f;scroll-margin-top:90px}h1{font-size:34px;letter-spacing:-1px;margin:0 0 30px;font-family:"Songti SC","STSong",Georgia,serif;font-weight:700}h2{font-size:23px;margin:48px 0 20px;padding-top:18px;border-top:1px solid var(--line)}h3{font-size:18px;margin-top:30px}p,ul,ol{margin:18px 0}article li{margin:6px 0}article a{text-decoration:none;font-weight:600}article code{font-size:.86em;background:#eaf0e8;padding:3px 5px;border-radius:3px;color:#355440}pre{position:relative;overflow:auto;background:#f0f2ed;border:1px solid #dce2d7;padding:22px;border-radius:5px;line-height:1.7;font-size:13px}pre code{background:none;padding:0;color:var(--ink);font-size:inherit;white-space:pre;overflow-wrap:normal}.copy{position:absolute;right:6px;top:6px;background:var(--paper);border:1px solid var(--line);font-size:11px;padding:4px 8px;color:var(--muted);border-radius:3px}blockquote,.admonition{border-left:3px solid #8ba58a;margin:24px 0;padding:4px 22px;background:#f0f3ec;color:#566451}.admonition-title{font-weight:700}.table-scroll{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px;margin:24px 0}th,td{border-bottom:1px solid var(--line);padding:12px;text-align:left;vertical-align:top}th{background:#edf0e8;font-weight:650}img,svg{max-width:100%}.page-toc{font-size:12px;padding-top:48px;color:var(--muted)}.page-toc>span{font-size:10px;letter-spacing:2px}.page-toc ul{margin-top:12px}.page-toc ul ul{padding-left:10px}.page-toc a{display:block;color:var(--muted);line-height:1.6;padding:5px 0}.back-top{margin-top:30px;border-top:1px solid var(--line);padding-top:16px!important}.pagination{display:grid;grid-template-columns:1fr 1fr;gap:25px;border-top:1px solid var(--line);margin-top:60px;padding:25px 0}.pagination a{font-size:14px}.pagination a:last-child{text-align:right}.pagination small{display:block;color:var(--muted);font-size:11px;margin-bottom:8px}footer{font-size:11px;color:var(--muted);padding:25px 0 40px}.search-dialog{width:min(640px,92vw);max-height:80vh;top:8vh;border:1px solid var(--line);border-radius:8px;padding:24px;background:var(--paper);color:var(--ink)}.search-dialog::backdrop{background:#1b302b66}.search-bar{display:flex;gap:10px}.search-bar input{min-width:0;flex:1;padding:12px;border:1px solid var(--line);border-radius:4px;background:white}.search-close{border:0;background:none;color:var(--muted)}.search-status{font-size:12px;color:var(--muted)}.search-results{list-style:none;padding:0}.search-results li{border-top:1px solid var(--line);padding:15px 0}.search-results a{font-weight:650}.search-results p{font-size:13px;color:var(--muted);line-height:1.7;margin:5px 0}.book-index{list-style:none;padding:0;counter-reset:chapter}.book-index li{counter-increment:chapter;border-bottom:1px solid var(--line);padding:14px 0;display:flex;gap:20px}.book-index li:before{content:counter(chapter,decimal-leading-zero);font-family:Georgia,serif;color:#829681;font-size:22px}.book-index a{font-weight:600;text-decoration:none}.book-lead{font-size:18px;color:var(--muted)}.highlight .k,.highlight .kn{color:#88556a}.highlight .s,.highlight .s1,.highlight .s2{color:#477339}.highlight .c1{color:#798175}.highlight .nf{color:#236a78}
+@media(max-width:1150px){.book-layout{grid-template-columns:230px minmax(0,1fr);gap:28px}.page-toc{display:none}.brand-note{display:none}}@media(max-width:760px){.topbar{padding:0 18px;height:62px}.search-open{min-width:0;font-size:12px}.search-open kbd{display:none}.book-layout{display:block;padding:0 22px}.chapters{position:static;height:auto;border:0;border-bottom:1px solid var(--line);padding:18px 0}.chapter-drawer>summary{margin:0;padding:8px 0;font-size:13px}.sidebar-note{display:none}main{padding-top:28px}h1{font-size:28px}article{font-size:16px}.chapters nav{max-height:55vh;overflow:auto}pre{padding:20px 14px}.pagination{gap:16px}}@media(prefers-reduced-motion:reduce){:root{scroll-behavior:auto}}
+
+/* 品牌是整体导航入口，悬停不为文字与标志添加下划线。 */
+.brand:hover,.brand:focus-visible{text-decoration:none;color:var(--accent)}
+
+.chapters a:hover,.page-toc a:hover{color:var(--accent);background:#e7eee6}
+
+/* 中文长文阅读：正文优先，辅助导航保持紧凑。 */
+.book-layout { grid-template-columns: 248px minmax(0, 720px) 184px; gap: 40px; max-width: 1320px; padding-inline: 28px; }
+.topbar { height: 68px; padding-inline: 28px; }
+.brand { font-size: 19px; }
+.brand-note { font-size: 13px; letter-spacing: .04em; }
+.brand-mark { width: 32px; height: 34px; }
+main { padding-top: 40px; }
+.chapter-label { font-size: 11px; letter-spacing: .1em; margin-bottom: 16px; }
+article { font-size: 17px; line-height: 1.9; }
+article h1 { font-size: clamp(28px, 2.6vw, 36px); line-height: 1.4; letter-spacing: -.025em; margin-bottom: 26px; }
+article h2 { font-size: 24px; line-height: 1.5; margin: 40px 0 18px; padding-top: 0; border-top: 0; }
+article h3 { font-size: 19px; line-height: 1.55; margin: 30px 0 12px; }
+article p, article ul, article ol { margin-block: 16px; }
+article h1 + p { color: #566359; font-size: 17px; }
+article pre { font-size: 14px; line-height: 1.8; padding: 25px 20px 20px; margin-block: 20px; }
+article code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+article table { font-size: 15px; line-height: 1.75; }
+article th, article td { padding: 12px 14px; }
+.chapters, .page-toc { top: 68px; height: calc(100vh - 68px); scrollbar-width: thin; scrollbar-color: #ccd4c9 transparent; }
+.chapters { padding-top: 28px; padding-right: 16px; }
+.chapter-drawer > summary { font-size: 12px; letter-spacing: .1em; margin-bottom: 18px; }
+.chapters nav summary { font-size: 13px; padding-block: 8px; line-height: 1.65; }
+.chapters a { font-size: 13px; padding: 7px 9px; line-height: 1.65; }
+.chapters ul ul { padding-left: 7px; margin-left: 4px; }
+.chapters li { margin-block: 2px; }
+.page-toc { padding-top: 40px; font-size: 13px; }
+.page-toc > span { font-size: 12px; letter-spacing: .08em; font-weight: 600; }
+.page-toc > ul { border-left: 1px solid var(--line); padding-left: 14px; margin-top: 18px; }
+.page-toc a { padding: 6px 0; line-height: 1.65; }
+.pagination { padding-top: 24px; margin-top: 48px; }
+.pagination a { font-size: 14px; line-height: 1.65; }
+@media (max-width: 1150px) {
+ .book-layout { grid-template-columns: 224px minmax(0, 720px); gap: 32px; }
+}
+@media (max-width: 760px) {
+ .book-layout { display: block; padding-inline: 20px; }
+ .topbar { height: 60px; padding-inline: 20px; }
+ .brand { font-size: 17px; }
+ .chapters { height: auto; padding: 12px 0; }
+ .chapter-drawer > summary { margin-bottom: 0; padding-block: 10px; }
+ .chapters a, .chapters nav summary { min-height: 44px; padding-block: 11px; }
+ main { padding-top: 26px; }
+ article { font-size: 16px; line-height: 1.85; }
+ article h1 { font-size: 28px; margin-bottom: 22px; }
+ article h2 { font-size: 22px; margin-top: 32px; }
+ article h1 + p { font-size: 16px; }
+ article pre { font-size: 13px; padding: 28px 14px 16px; }
+ .search-open { min-height: 40px; }
+}
+
+/* 独立于页头行高，让品牌字母在色块内居中。 */
+.brand-mark { display: inline-flex; align-items: center; justify-content: center; line-height: 1; flex-shrink: 0; }
+
+/* 目录使用实际的 14px 层级；标志用固定字形避免字体基线偏移。 */
+.chapters nav summary { font-size: 14px; font-weight: 700; }
+.chapters a { font-size: 14px; font-weight: 400; }
+.chapters a[aria-current] { font-weight: 700; }
+.page-toc { font-size: 14px; }
+.brand-mark svg { display: block; width: 20px; height: 24px; }
+
+/* 桌面直接展示章节树；窄屏保留目录展开入口。 */
+@media (min-width: 761px) { .chapter-drawer > summary { display: none; } }

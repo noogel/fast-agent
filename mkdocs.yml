@@ -4,23 +4,20 @@ site_url: https://noogel.github.io/fast-agent/
 dev_addr: 127.0.0.1:8000
 strict: true
 theme:
-  name: material
-  language: zh
-  font: false
-  features:
-    - navigation.footer
-    - navigation.top
-    - content.code.copy
-    - search.highlight
+  name: null
+  custom_dir: theme
 plugins:
   - search:
       lang: zh
 markdown_extensions:
+  - attr_list
+  - md_in_html
   - pymdownx.highlight
   - pymdownx.superfences
   - tables
   - admonition
 watch:
+  - theme
   - src/fast_agent
   - examples
 hooks:
@@ -32,7 +29,7 @@ not_in_nav: |
   start-with-a-task.md
 nav:
   - 开始阅读: index.md
-  - 由浅入深理解 agent:
+  - 理解 Agent:
       - 阅读路线与参考资料: deep-dive/index.md
       - 01 · 从失败测试认识 Agent: deep-dive/decisions.md
       - 02 · 模型怎样请求工具: deep-dive/tools.md
