@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 1080" role="img" aria-labelledby="title desc">
+<title id="title">Fast Agent 分层逻辑架构</title>
+<desc id="desc">六个横向层级：交互接入、任务编排、上下文知识、能力适配、执行环境、存储基础设施。右侧为贯穿各层的安全与可观测性。外部模型和 MCP 服务位于系统边界之外。方框表达组成关系，不表达时间顺序。</desc>
+<rect width="1440" height="1080" fill="#f8fafc"/>
+<g font-family="system-ui, sans-serif">
+<text x="36" y="45" font-size="30" fill="#0f172a" font-weight="700">FAST AGENT</text>
+<text x="264" y="44" font-size="26" fill="#334155" font-weight="600">分层逻辑架构</text>
+<text x="36" y="76" font-size="17" fill="#334155" font-weight="400">层级表达职责与支撑关系 · 层内模块并列 · 不表示执行先后或独立进程</text>
+<rect x="24" y="96" width="1392" height="816" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="44" y="125" font-size="17" fill="#475569" font-weight="600">本地 Agent 系统边界</text>
+<rect x="44" y="148" width="1036" height="110" rx="10" fill="#eaf2ff" stroke="none" stroke-width="1.5"/>
+<text x="60" y="190" font-size="22" fill="#1e293b" font-weight="650">交互接入层</text>
+<text x="60" y="217" font-size="13" fill="#64748b" font-weight="400">Interface</text>
+<rect x="264" y="162" width="253" height="82" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<circle cx="281" cy="186" r="4" fill="#059669"/>
+<text x="293" y="192" font-size="19" fill="#0f172a" font-weight="600">CLI / 中文交互</text>
+<text x="277" y="220" font-size="14" fill="#475569" font-weight="400">参数、流式事件显示</text>
+<rect x="531" y="162" width="253" height="82" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<circle cx="548" cy="186" r="4" fill="#059669"/>
+<text x="560" y="192" font-size="19" fill="#0f172a" font-weight="600">会话管理命令</text>
+<text x="544" y="220" font-size="14" fill="#475569" font-weight="400">恢复、继续、显式管理</text>
+<rect x="798" y="162" width="253" height="82" rx="10" fill="#fff7ed" stroke="#f97316" stroke-width="1.5"/>
+<circle cx="815" cy="186" r="4" fill="#f97316"/>
+<text x="827" y="192" font-size="19" fill="#0f172a" font-weight="600">IDE / LSP 接入</text>
+<text x="811" y="220" font-size="14" fill="#475569" font-weight="400">符号/诊断工具；编辑器待接</text>
+<rect x="44" y="270" width="1036" height="110" rx="10" fill="#edeaff" stroke="none" stroke-width="1.5"/>
+<text x="60" y="312" font-size="22" fill="#1e293b" font-weight="650">任务编排层</text>
+<text x="60" y="339" font-size="13" fill="#64748b" font-weight="400">Orchestration</text>
+<rect x="264" y="284" width="253" height="82" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<circle cx="281" cy="308" r="4" fill="#059669"/>
+<text x="293" y="314" font-size="19" fill="#0f172a" font-weight="600">Agent 执行内核</text>
+<text x="277" y="342" font-size="14" fill="#475569" font-weight="400">工具循环、暂停与继续</text>
+<rect x="531" y="284" width="253" height="82" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<circle cx="548" cy="308" r="4" fill="#059669"/>
+<text x="560" y="314" font-size="19" fill="#0f172a" font-weight="600">工程任务管理</text>
+<text x="544" y="342" font-size="14" fill="#475569" font-weight="400">计划、检查点、质量检查</text>
+<rect x="798" y="284" width="253" height="82" rx="10" fill="#fffdf7" stroke="#d9a54b" stroke-width="1.5"/>
+<circle cx="815" cy="308" r="4" fill="#b7791f"/>
+<text x="827" y="314" font-size="19" fill="#0f172a" font-weight="600">子 Agent 协作</text>
+<text x="811" y="342" font-size="14" fill="#475569" font-weight="400">有界并发只读、共享预算</text>
+<rect x="44" y="392" width="1036" height="110" rx="10" fill="#e6f5f3" stroke="none" stroke-width="1.5"/>
+<text x="60" y="434" font-size="22" fill="#1e293b" font-weight="650">上下文与知识层</text>
+<text x="60" y="461" font-size="13" fill="#64748b" font-weight="400">Context &amp; Knowledge</text>
+<rect x="264" y="406" width="253" height="82" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<circle cx="281" cy="430" r="4" fill="#059669"/>
+<text x="293" y="436" font-size="19" fill="#0f172a" font-weight="600">会话与上下文</text>
+<text x="277" y="464" font-size="14" fill="#475569" font-weight="400">历史、压缩、占用诊断</text>
+<rect x="531" y="406" width="253" height="82" rx="10" fill="#fffdf7" stroke="#d9a54b" stroke-width="1.5"/>
+<circle cx="548" cy="430" r="4" fill="#b7791f"/>
+<text x="560" y="436" font-size="19" fill="#0f172a" font-weight="600">规则与 Skill</text>
+<text x="544" y="464" font-size="14" fill="#475569" font-weight="400">AGENTS.md、资源树版本校验</text>
+<rect x="798" y="406" width="253" height="82" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<circle cx="815" cy="430" r="4" fill="#059669"/>
+<text x="827" y="436" font-size="19" fill="#0f172a" font-weight="600">持久用户交互</text>
+<text x="811" y="464" font-size="14" fill="#475569" font-weight="400">提问恢复、回答关联</text>
+<rect x="44" y="514" width="1036" height="110" rx="10" fill="#fff3e3" stroke="none" stroke-width="1.5"/>
+<text x="60" y="556" font-size="22" fill="#1e293b" font-weight="650">能力适配层</text>
+<text x="60" y="583" font-size="13" fill="#64748b" font-weight="400">Adapters</text>
+<rect x="264" y="528" width="253" height="82" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<circle cx="281" cy="552" r="4" fill="#059669"/>
+<text x="293" y="558" font-size="19" fill="#0f172a" font-weight="600">模型适配</text>
+<text x="277" y="586" font-size="14" fill="#475569" font-weight="400">兼容 API、流式与重试</text>
+<rect x="531" y="528" width="253" height="82" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<circle cx="548" cy="552" r="4" fill="#059669"/>
+<text x="560" y="558" font-size="19" fill="#0f172a" font-weight="600">工具协议与注册</text>
+<text x="544" y="586" font-size="14" fill="#475569" font-weight="400">参数校验、统一结果</text>
+<rect x="798" y="528" width="253" height="82" rx="10" fill="#fffdf7" stroke="#d9a54b" stroke-width="1.5"/>
+<circle cx="815" cy="552" r="4" fill="#b7791f"/>
+<text x="827" y="558" font-size="19" fill="#0f172a" font-weight="600">扩展适配</text>
+<text x="811" y="586" font-size="14" fill="#475569" font-weight="400">MCP / 扩展 / OAuth 生命周期</text>
+<rect x="44" y="636" width="1036" height="110" rx="10" fill="#e9eff9" stroke="none" stroke-width="1.5"/>
+<text x="60" y="678" font-size="22" fill="#1e293b" font-weight="650">执行环境层</text>
+<text x="60" y="705" font-size="13" fill="#64748b" font-weight="400">Execution</text>
+<rect x="264" y="650" width="253" height="82" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<circle cx="281" cy="674" r="4" fill="#059669"/>
+<text x="293" y="680" font-size="19" fill="#0f172a" font-weight="600">本地工程工具</text>
+<text x="277" y="708" font-size="14" fill="#475569" font-weight="400">搜索、编辑、Git、测试</text>
+<rect x="531" y="650" width="253" height="82" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<circle cx="548" cy="674" r="4" fill="#059669"/>
+<text x="560" y="680" font-size="19" fill="#0f172a" font-weight="600">进程与后台任务</text>
+<text x="544" y="708" font-size="14" fill="#475569" font-weight="400">命令运行、日志、取消</text>
+<rect x="798" y="650" width="253" height="82" rx="10" fill="#fffdf7" stroke="#d9a54b" stroke-width="1.5"/>
+<circle cx="815" cy="674" r="4" fill="#b7791f"/>
+<text x="827" y="680" font-size="19" fill="#0f172a" font-weight="600">隔离工作区</text>
+<text x="811" y="708" font-size="14" fill="#475569" font-weight="400">worktree 交付、归档与清理</text>
+<rect x="44" y="758" width="1036" height="110" rx="10" fill="#edf1f5" stroke="none" stroke-width="1.5"/>
+<text x="60" y="800" font-size="22" fill="#1e293b" font-weight="650">存储基础设施层</text>
+<text x="60" y="827" font-size="13" fill="#64748b" font-weight="400">Persistence</text>
+<rect x="264" y="772" width="253" height="82" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<circle cx="281" cy="796" r="4" fill="#059669"/>
+<text x="293" y="802" font-size="19" fill="#0f172a" font-weight="600">会话与任务存储</text>
+<text x="277" y="830" font-size="14" fill="#475569" font-weight="400">会话 / 计划 / 检查点</text>
+<rect x="531" y="772" width="253" height="82" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<circle cx="548" cy="796" r="4" fill="#059669"/>
+<text x="560" y="802" font-size="19" fill="#0f172a" font-weight="600">证据与交付存储</text>
+<text x="544" y="830" font-size="14" fill="#475569" font-weight="400">日志 / 报告 / 补丁 / 变更</text>
+<rect x="798" y="772" width="253" height="82" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<circle cx="815" cy="796" r="4" fill="#059669"/>
+<text x="827" y="802" font-size="19" fill="#0f172a" font-weight="600">存储生命周期</text>
+<text x="811" y="830" font-size="14" fill="#475569" font-weight="400">保留策略、回收和引用校验</text>
+<rect x="1100" y="148" width="138" height="720" rx="10" fill="#f1effa" stroke="#c4b5df" stroke-width="1.5"/>
+<rect x="1254" y="148" width="138" height="720" rx="10" fill="#eaf3f6" stroke="#a9cad6" stroke-width="1.5"/>
+<text x="1112" y="182" font-size="18" fill="#334155" font-weight="650">安全与治理</text>
+<text x="1112" y="210" font-size="14" fill="#64748b" font-weight="400">横切各层</text>
+<text x="1112" y="266" font-size="17" fill="#334155" font-weight="600">权限策略</text>
+<text x="1112" y="293" font-size="14" fill="#64748b" font-weight="400">确认 / 白名单</text>
+<text x="1112" y="376" font-size="17" fill="#334155" font-weight="600">执行模式</text>
+<text x="1112" y="403" font-size="14" fill="#64748b" font-weight="400">计划 / 执行</text>
+<text x="1112" y="486" font-size="17" fill="#334155" font-weight="600">路径与规则</text>
+<text x="1112" y="513" font-size="14" fill="#64748b" font-weight="400">校验 / 防越界</text>
+<text x="1112" y="596" font-size="17" fill="#334155" font-weight="600">副作用保护</text>
+<text x="1112" y="623" font-size="14" fill="#64748b" font-weight="400">冲突 / 撤销</text>
+<text x="1112" y="706" font-size="17" fill="#334155" font-weight="600">命令沙箱</text>
+<text x="1112" y="733" font-size="14" fill="#64748b" font-weight="400">限定执行边界</text>
+<text x="1266" y="182" font-size="18" fill="#334155" font-weight="650">可观测与控制</text>
+<text x="1266" y="210" font-size="14" fill="#64748b" font-weight="400">横切各层</text>
+<text x="1266" y="266" font-size="17" fill="#334155" font-weight="600">事件与日志</text>
+<text x="1266" y="293" font-size="14" fill="#64748b" font-weight="400">流式 / 运行日志</text>
+<text x="1266" y="376" font-size="17" fill="#334155" font-weight="600">用量与预算</text>
+<text x="1266" y="403" font-size="14" fill="#64748b" font-weight="400">请求 / token</text>
+<text x="1266" y="486" font-size="17" fill="#334155" font-weight="600">失败控制</text>
+<text x="1266" y="513" font-size="14" fill="#64748b" font-weight="400">重试 / 暂停</text>
+<text x="1266" y="596" font-size="17" fill="#334155" font-weight="600">质量证据</text>
+<text x="1266" y="623" font-size="14" fill="#64748b" font-weight="400">测试 / 差异</text>
+<text x="1266" y="706" font-size="17" fill="#334155" font-weight="600">工程评测</text>
+<text x="1266" y="733" font-size="14" fill="#64748b" font-weight="400">任务集 / 独立断言</text>
+<text x="44" y="897" font-size="16" fill="#475569" font-weight="400">绿色：已有能力　橙色：受限能力（边界见正文）　外部虚线框：系统外依赖</text>
+<rect x="24" y="934" width="1392" height="88" rx="10" fill="#eef2f6" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="7 5"/>
+<text x="44" y="968" font-size="20" fill="#334155" font-weight="650">外部依赖</text>
+<text x="244" y="968" font-size="19" fill="#334155" font-weight="400">模型服务：MiniMax / 兼容 API</text>
+<text x="760" y="968" font-size="19" fill="#334155" font-weight="400">外部工具服务：MCP stdio / HTTP</text>
+<text x="244" y="997" font-size="15" fill="#64748b" font-weight="400">由模型适配模块访问</text>
+<text x="760" y="997" font-size="15" fill="#64748b" font-weight="400">由扩展适配模块连接</text>
+<text x="36" y="1056" font-size="17" fill="#475569" font-weight="400">阅读方式：从上至下看职责层次，从左至右看同层组成；安全与可观测能力贯穿系统。</text>
+</g></svg>
