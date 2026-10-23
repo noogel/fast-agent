@@ -1,6 +1,6 @@
 site_name: Fast Agent 中文教程
 site_description: 从模型调用到工程级 Agent，结合代码理解执行流程
-site_url: https://nuniok.github.io/awesome/
+site_url: https://noogel.github.io/fast-agent/
 dev_addr: 127.0.0.1:8000
 strict: true
 theme:

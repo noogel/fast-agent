@@ -37,7 +37,7 @@ fast-agent --demo
 ## 启动这个文档服务
 
 ```bash
-cd fast-agent  # 从 awesome 仓库根目录进入项目
+cd fast-agent  # 进入独立项目目录
 .venv/bin/python -m pip install -e '.[docs]'
 .venv/bin/python -m mkdocs serve
 ```
@@ -50,11 +50,11 @@ cd fast-agent  # 从 awesome 仓库根目录进入项目
 
 ## 发布到 GitHub Pages
 
-线上地址为 <https://nuniok.github.io/awesome/>。GitHub 仓库的 Pages 发布来源需设置为 **GitHub Actions**，`github-pages` 环境需允许 `codex/fast-agent` 分支部署。
+线上地址为 <https://noogel.github.io/fast-agent/>。GitHub 仓库的 Pages 发布来源需设置为 **GitHub Actions**，`github-pages` 环境需允许 `main` 分支部署。
 
 选择 GitHub Actions 后，无需再创建页面推荐的 Jekyll 或 Static HTML 模板。若首次运行因未启用 Pages 而失败，启用后可在 Actions 中重新运行失败任务，或推送新的教程变更触发发布。
 
-仓库根目录的 `.github/workflows/fast-agent-pages.yml` 在该分支的教程、源码参考或发布配置变更推送到 GitHub 时触发。它安装 `requirements-docs.txt` 中的文档依赖，执行严格构建，仅上传 `fast-agent/site/`。不安装模型 SDK，不读取 `.env`，不运行 Agent，也不需要模型密钥。源码参考页会公开展示项目 Python 模块和示例。
+仓库根目录的 `.github/workflows/fast-agent-pages.yml` 在该分支的教程、源码参考或发布配置变更推送到 GitHub 时触发。它安装 `requirements-docs.txt` 中的文档依赖，执行严格构建，仅上传 `site/`。不安装模型 SDK，不读取 `.env`，不运行 Agent，也不需要模型密钥。源码参考页会公开展示项目 Python 模块和示例。
 
 发布前可在项目目录本地检查：
 
