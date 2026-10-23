@@ -1,0 +1,103 @@
+site_name: Fast Agent 中文教程
+site_description: 从模型调用到工程级 Agent，结合代码理解执行流程
+site_url: https://nuniok.github.io/awesome/
+dev_addr: 127.0.0.1:8000
+strict: true
+theme:
+  name: material
+  language: zh
+  font: false
+  features:
+    - navigation.footer
+    - navigation.top
+    - content.code.copy
+    - search.highlight
+plugins:
+  - search:
+      lang: zh
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - tables
+  - admonition
+watch:
+  - src/fast_agent
+  - examples
+hooks:
+  - scripts/docs_hooks.py
+exclude_docs: |
+  superpowers/
+not_in_nav: |
+  reference/
+  start-with-a-task.md
+nav:
+  - 开始阅读: index.md
+  - 由浅入深理解 agent:
+      - 阅读路线与参考资料: deep-dive/index.md
+      - 01 · 从失败测试认识 Agent: deep-dive/decisions.md
+      - 02 · 模型怎样请求工具: deep-dive/tools.md
+      - 03 · 一轮怎样接着下一轮: deep-dive/messages.md
+      - 04 · 对话变长后怎么办: deep-dive/context.md
+      - 05 · 怎样放心地修改代码: deep-dive/safety.md
+      - 06 · 中断后怎样继续: deep-dive/recovery.md
+      - 07 · 怎样扩展和分工: deep-dive/extensions.md
+      - 08 · 回看分层架构: architecture.md
+  - 实践指南:
+      - 模型与工具入门:
+          - 单次模型调用: tutorial/01-model.md
+          - 工具协议与注册: tutorial/02-tools.md
+          - Agent 循环: tutorial/03-loop.md
+          - 文件、命令与边界: tutorial/04-boundaries.md
+          - 多轮对话与事件: tutorial/05-conversation.md
+          - 添加自己的工具: tutorial/06-custom-tool.md
+      - 代码检索、编辑与验证:
+          - 本地仓库开发: tutorial/08-repository.md
+          - 更精确的代码检索: tutorial/18-precise-search.md
+          - 批量精确编辑: tutorial/13-multi-edit.md
+          - 文件编辑记录与安全撤销: tutorial/17-edit-undo.md
+          - 多文件修改批次与安全恢复: tutorial/25-edit-batches.md
+          - 配置质量检查与执行证据: tutorial/27-quality-checks.md
+          - LSP 符号与诊断: tutorial/51-lsp.md
+          - 工程评测与独立断言: tutorial/52-engineering-evals.md
+      - 会话与上下文:
+          - 保存、恢复与裁剪: tutorial/07-context.md
+          - 会话列表与启动时加载: tutorial/20-session-list-load.md
+          - 自动压缩与流式交互: tutorial/09-compaction-streaming.md
+          - 单次长任务上下文压缩: tutorial/16-active-compaction.md
+          - 手动上下文压缩: tutorial/19-manual-compaction.md
+          - 上下文占用诊断: tutorial/31-context-diagnostics.md
+          - 服务窗口超限恢复: tutorial/48-window-recovery.md
+          - 工具结果统一限额与落盘: tutorial/34-tool-output-retention.md
+          - 存储引用、隔离与永久回收: tutorial/46-storage-retention.md
+      - 任务执行与权限:
+          - 计划模式与执行模式: tutorial/12-plan-execute.md
+          - 任务、后台命令与权限: tutorial/10-tasks-jobs-permissions.md
+          - 超时与重试: tutorial/11-model-request-reliability.md
+          - 命令执行实时输出: tutorial/14-command-streaming.md
+          - 长日志保留与按需读取: tutorial/15-command-logs.md
+          - 任务继续执行与步数控制: tutorial/21-continue-steps.md
+          - 重复失败检测与暂停: tutorial/22-repeated-failures.md
+          - 调用用量与请求预算: tutorial/23-usage-budget.md
+          - 命令写入与网络隔离: tutorial/24-command-sandbox.md
+          - 持久任务计划与版本冲突: tutorial/26-task-plans.md
+          - 模型主动向用户提问: tutorial/35-user-questions.md
+          - 持久提问与答复恢复: tutorial/45-durable-questions.md
+      - Skill 与工具扩展:
+          - 显式加载本地工具扩展: tutorial/28-local-extensions.md
+          - 本地 Skill 发现与资源读取: tutorial/32-local-skills.md
+          - Skill 名称与用途元数据: tutorial/33-skill-metadata.md
+          - Skill 显式使用与加载状态: tutorial/36-skill-lifecycle.md
+          - Skill 资源版本与变更失效: tutorial/40-skill-resource-versions.md
+          - Skill 整体资源树版本: tutorial/47-skill-tree.md
+          - MCP 工具发现、调用与恢复: tutorial/29-mcp-tools.md
+          - MCP 远程 HTTP 服务: tutorial/30-mcp-http.md
+          - MCP 连接状态与工具刷新: tutorial/43-mcp-lifecycle.md
+          - MCP OAuth 生命周期: tutorial/50-mcp-oauth.md
+      - 工作区与子 Agent:
+          - Git worktree 独立任务目录: tutorial/37-worktree-isolation.md
+          - worktree 变更交付与真实修复: tutorial/39-worktree-delivery.md
+          - worktree 安全归档与恢复: tutorial/41-worktree-archive.md
+          - worktree 清理与证据恢复: tutorial/44-worktree-cleanup.md
+          - 只读子 Agent 委派: tutorial/38-readonly-delegation.md
+          - 委派报告显式汇总: tutorial/42-delegation-summary.md
+          - 并发只读委派: tutorial/49-parallel-delegation.md

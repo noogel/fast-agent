@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fast-agent-tutorial"
+version = "0.1.0"
+description = "用 Python 从零理解 Agent 循环的中文教学项目"
+requires-python = ">=3.11"
+dependencies = ["openai>=3.35.1,<4", "httpx2>=2.14,<3", "PyYAML>=6,<7"]
+
+[project.optional-dependencies]
+mcp-test = ["mcp>=1.26,<2"]
+dev = ["pytest>=9,<10", "cryptography>=50,<51"]
+docs = ["mkdocs>=1.6,<2", "mkdocs-material>=9.6,<10", "jieba>=0.42.1,<1"]
+
+[project.scripts]
+fast-agent = "fast_agent.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

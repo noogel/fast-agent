@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.egg-info/
+.env
+build/
+dist/
+
+# 本地会话可能包含代码与用户输入
+.fast-agent/
+
+# IDE 配置（本地工程状态，不入库）
+.idea/
+
+# 文档构建产物
+site/
